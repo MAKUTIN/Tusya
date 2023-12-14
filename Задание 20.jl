@@ -1,5 +1,5 @@
 using HorizonSideRobots
-r = Robot("untitled.sit", animate = true)
+r = Robot(animate = true)
 
 function recursion_along!(r::Robot, side::HorizonSide, steps::Int)
     if !isborder(r, side)
