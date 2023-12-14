@@ -2,12 +2,12 @@ using HorizonSideRobots
 r = Robot("untitled.sit", animate=true) 
 
 function chess!(r)
-    v, g = v_ugol_put_i_schet!(r, Sud, West)
+    v, g = ugol(r, Sud, West)
     if mod(v, 2) == mod(g, 2)
         putmarker!(r)
     end
     zmeika!(() -> isborder(r, Nord),r, Ost, Nord)
-    v_ugol_put_i_schet!(r, Sud, West)
+    ugol(r, Sud, West)
     num_move!(r, Nord, v)
     num_move!(r, Ost, g)
 end
@@ -36,7 +36,7 @@ function st!(r, f)
     return f
 end
 
-function v_ugol_put_i_schet!(r, side1, side2)
+function ugol(r, side1, side2)
     n1 = numsteps_along!(() -> isborder(r, side1), r, side1)
     n2 = numsteps_along!(() -> isborder(r, side2), r, side2)
     return n1, n2
